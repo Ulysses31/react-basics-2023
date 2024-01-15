@@ -4,20 +4,21 @@ import classes from "./NewPost.module.css";
 
 function NewPost({ onCancel, onAddPost }) {
   const [enterBody, setEnterBody] = useState("");
-  const [enterText, setEnterText] = useState("");
+  const [enterTitle, setEnterTitle] = useState("");
 
   function bodyChangeHandler(event) {
     setEnterBody(event.target.value);
   }
   function textChangeHandler(event) {
-    setEnterText(event.target.value);
+    setEnterTitle(event.target.value);
   }
 
   function submitHandler(event) {
     event.preventDefault();
     const postData = {
+      userId: 1,
       body: enterBody,
-      text: enterText,
+      title: enterTitle,
     };
 
     onAddPost(postData);
@@ -28,23 +29,23 @@ function NewPost({ onCancel, onAddPost }) {
   return (
     <form className={classes.form} onSubmit={submitHandler}>
       <p>
-        <label htmlFor="body">Text</label>
+        <label htmlFor="title">Your Title*</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          onChange={textChangeHandler}
+          required
+        />
+      </p>{" "}
+      <p>
+        <label htmlFor="body">Body</label>
         <textarea
           id="body"
           name="body"
           rows={3}
           onChange={bodyChangeHandler}
         ></textarea>
-      </p>
-      <p>
-        <label htmlFor="name">Your name*</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          onChange={textChangeHandler}
-          required
-        />
       </p>
       <p className={classes.actions}>
         <button type="button" onClick={onCancel}>

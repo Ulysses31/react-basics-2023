@@ -1,17 +1,17 @@
 import PropTypes from "prop-types";
 import classes from "./Post.module.css";
 
-function Post({ author, body }) {
+function Post({ title, body }) {
   return (
     <li className={classes.post}>
-      <p className={classes.author}>{author}</p>
+      <p className={classes.author}>{title}</p>
       <p className={classes.text}>{body}</p>
     </li>
   );
 }
 
 Post.propTypes = {
-  author: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
 };
 
