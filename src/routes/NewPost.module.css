@@ -30,7 +30,8 @@
   gap: 0.5rem;
 }
 
-.actions button {
+.actions button,
+.actions a {
   cursor: pointer;
   font: inherit;
   padding: 0.5rem 1.5rem;
@@ -40,7 +41,8 @@
   color: #e5d5f7;
 }
 
-.actions button:hover {
+.actions button:hover,
+.actions a:hover {
   background-color: #23014a;
 }
 
